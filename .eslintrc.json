@@ -1,0 +1,36 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"commonjs": true,
+		"node": true
+	},
+	"ignorePatterns": ["/node_modules"],
+	"extends": ["eslint:recommended"],
+	"parserOptions": {
+		"ecmaFeatures": {},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"settings": {},
+	"plugins": ["spellcheck"],
+	"rules": {
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"linebreak-style": ["error", "windows"],
+		"quotes": ["error", "double"],
+		"semi": ["error", "always"],
+		"spellcheck/spell-checker": [
+			"warn",
+			{
+				"comments": true,
+				"strings": true,
+				"identifiers": true,
+				"lang": "en_US",
+				"skipWords": ["dict", "bool", "utils", "sequelize", "readdir", "webpack", "jsx", "tsx", "cjs", "mjs", "cts", "mts"],
+				"skipIfMatch": ["http://[^s]*"],
+				"skipWordIfMatch": ["^foobar.*$"],
+				"minLength": 3
+			}
+		]
+	}
+}

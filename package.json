@@ -1,0 +1,25 @@
+{
+	"name": "backend-express",
+	"version": "1.0.0",
+	"author": "Nguyen Tien Hau",
+	"license": "ISC",
+	"main": "./build/index.js",
+	"scripts": {
+		"format": "prettier . --write",
+		"lint": "eslint **/*.{js,ts}",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc",
+		"start": "node ./build/index.js"
+	},
+	"dependencies": {
+		"mysql2": "^3.11.3",
+		"sequelize": "^6.37.4"
+	},
+	"devDependencies": {
+		"eslint": "^8.57.1",
+		"eslint-plugin-spellcheck": "^0.0.20",
+		"prettier": "^3.3.3",
+		"sequelize-cli": "^6.6.2",
+		"typescript": "^5.6.3"
+	}
+}
