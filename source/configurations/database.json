@@ -1,0 +1,41 @@
+{
+	"development": {
+		"username": "root",
+		"password": null,
+		"database": "development",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"seederStorage": "sequelize",
+		"seederStorageTableName": "sequelize_seeder",
+		"define": {
+			"freezeTableName": true,
+			"underscored": true
+		}
+	},
+	"test": {
+		"username": "root",
+		"password": null,
+		"database": "database_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"seederStorage": "sequelize",
+		"seederStorageTableName": "sequelize_seeder",
+		"define": {
+			"freezeTableName": true,
+			"underscored": true
+		}
+	},
+	"production": {
+		"username": "root",
+		"password": null,
+		"database": "database_production",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"seederStorage": "sequelize",
+		"seederStorageTableName": "sequelize_seeder",
+		"define": {
+			"freezeTableName": true,
+			"underscored": true
+		}
+	}
+}

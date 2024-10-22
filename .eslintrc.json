@@ -19,18 +19,10 @@
 		"linebreak-style": ["error", "windows"],
 		"quotes": ["error", "double"],
 		"semi": ["error", "always"],
+		"no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
 		"spellcheck/spell-checker": [
-			"warn",
-			{
-				"comments": true,
-				"strings": true,
-				"identifiers": true,
-				"lang": "en_US",
-				"skipWords": ["dict", "bool", "utils", "sequelize", "readdir", "webpack", "jsx", "tsx", "cjs", "mjs", "cts", "mts"],
-				"skipIfMatch": ["http://[^s]*"],
-				"skipWordIfMatch": ["^foobar.*$"],
-				"minLength": 3
-			}
+			"error",
+			{ "comments": true, "strings": true, "identifiers": true, "lang": "en_US", "skipWords": ["sequelize", "readdir", "middlewares"], "minLength": 3 }
 		]
 	}
 }

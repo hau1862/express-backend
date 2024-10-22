@@ -55,7 +55,7 @@
 	},
 	{
 		target: Object.prototype,
-		name: "equals",
+		name: "equalTo",
 		value: function (target) {
 			if (this === target) {
 				return true;
@@ -75,7 +75,7 @@
 							if (Object.hasOwn(target, key)) {
 								const sourceValue = source[key], targetValue = target[key];
 
-								return sourceValue ? sourceValue.equals(targetValue) : sourceValue === targetValue;
+								return sourceValue ? sourceValue.equalTo(targetValue) : sourceValue === targetValue;
 							} else {
 								return false;
 							}
@@ -85,14 +85,14 @@
 						return this.length === target.length && this.every(function (sourceItem, index) {
 							const targetItem = target[index];
 
-							return sourceItem ? sourceItem.equals(targetItem) : sourceItem === targetItem;
+							return sourceItem ? sourceItem.equalTo(targetItem) : sourceItem === targetItem;
 						});
 					}
 					case Set: {
 						const sourceItems = Array.from(this.keys()), targetItems = Array.from(target.keys());
 
 						return this.size === target.size && sourceItems.every(function (sourceItem) {
-							return sourceItem ? targetItems.some((targetItem) => sourceItem.equals(targetItem)) : target.has(sourceItem);
+							return sourceItem ? targetItems.some((targetItem) => sourceItem.equalTo(targetItem)) : target.has(sourceItem);
 						});
 					}
 					case Map: {
@@ -102,7 +102,7 @@
 							if (target.has(key)) {
 								const sourceValue = source.get(key), targetValue = target.get(key);
 
-								return sourceValue ? sourceValue.equals(targetValue) : sourceValue === targetValue;
+								return sourceValue ? sourceValue.equalTo(targetValue) : sourceValue === targetValue;
 							} else {
 								return false;
 							}
@@ -124,6 +124,15 @@
 			return this.split(" ").map(function (item) {
 				return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
 			}).join(" ");
+		}
+	},
+	{
+		target: String.prototype,
+		name: "format",
+		value: function (data = {}) {
+			return data.constructor === Object ? this.replace(/{([A-Za-z0-9_-]+)}/g, function (match, key) {
+				return data[key] || match;
+			}) : this;
 		}
 	},
 	{
